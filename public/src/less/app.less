@@ -1,0 +1,61 @@
+html, body, .google-maps {
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.google-maps.is-loading {
+  opacity: 0.3;
+}
+
+html {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+}
+
+
+a {
+  color: #428bca;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: #2a6496;
+    text-decoration: underline;
+  }
+}
+
+.error-message {
+  color: #d9534f;
+}
+
+.about {
+  position: absolute;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.8);
+  width: 15%;
+  min-width: 200px;
+  max-width: 400px;
+  padding: 20px;
+
+  .live-status {
+    background-color: white;
+    position: relative;
+    left: -20px;
+    width: 100%;
+    padding: 5px 20px;
+  }
+
+  .inner {
+    transition: 0.3s linear all;
+    opacity:1;
+
+    &.ng-hide {
+      opacity:0;
+    }
+
+    &.ng-hide-add, &.ng-hide-remove {
+      display:block!important;
+    }
+  }
+}

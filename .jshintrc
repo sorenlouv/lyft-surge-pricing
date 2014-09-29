@@ -1,0 +1,16 @@
+{
+  "strict": true,
+  "unused": false,
+  "quotmark": "single",
+  "es3": true,
+  "debug": true,
+  "globals": {
+    "console": true,
+    "angular": true,
+    "google": true,
+    "InfoBox": true,
+    "lyftApp": true,
+    "require": true,
+    "module": true
+  }
+}

@@ -1,0 +1,1 @@
+var lyftApp = angular.module('lyftApp', ['ngAnimate']);

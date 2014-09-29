@@ -1,0 +1,11 @@
+{
+  "name": "lyft-backend",
+  "description": "Lyft surge pricing",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "4.x",
+    "nconf": "^0.6.9",
+    "request": "2.x"
+  }
+}

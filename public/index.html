@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="da" ng-app="lyftApp">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Lyft surge prices</title>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <script src="http://google-maps-utility-library-v3.googlecode.com/svn/tags/infobox/1.1.9/src/infobox.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular-animate.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/spin.js/2.0.1/spin.min.js"></script>
+    <script src="dist/lyft.js"></script>
+    <link rel="stylesheet" type="text/css" href="dist/lyft.css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,700,400' rel='stylesheet' type='text/css'>
+  </head>
+  <body ng-controller="main">
+    <div class="about">
+      <a href="" ng-hide="isAboutVisible" ng-click="isAboutVisible=true">Show "About"</a>
+      <a href="" ng-show="isMobile && isAboutVisible" ng-click="isAboutVisible=false">Hide "About"</a>
+
+      <div class="inner" ng-show="isAboutVisible">
+        <h2>Lyft surge pricing</h2>
+
+        <div class="live-status">
+          <h3>Live status</h3>
+          <p ng-if="errorLoadingTips" class="error-message">
+            Ouch, something bad happened while loading surge prices. Please refresh the page and cross your fingers...
+          </p>
+
+          <div ng-if="!isLoading && !errorLoadingTips">
+            <p ng-if="tips.length > 0">
+            Surge pricing is currently in effect in <strong>{{tipCoverage | number:0}}%</strong> of San Francisco, with an average price increase of <strong>{{tipAverage | number:0}}%</strong>
+            </p>
+            <p ng-if="tips.length == 0">
+              No surge pricing in San Francisco right now! Go grab a cheap Lyft.
+            </p>
+          </div>
+
+          <p>
+            <em ng-if="isLoading">Please hold on, while we fetch the latest surge prices...</em>
+          </p>
+        </div>
+
+        <h3>What is surge pricing?</h3>
+        <p>
+          When the demand for Lyft drivers outstrips supply, the standard price rate will increase.
+        </p>
+
+        <h3>Why this... <em>thing</em>?</h3>
+          <p>
+          I made this mostly out of curiosity. But I also think this can be useful. Currently, surge pricing is a black box. It can go from 0% to 100% and back again, if you wait a few minutes or walk to the nearest corner. I wanted to gain some insights into where and when surge pricing goes into effect.</p>
+
+          <p>
+          This is the <em>where</em>; hopefully over time, I'll have some meaningful analytics and will be able figure out the <em>when</em>.
+          </p>
+        </p>
+
+        <div>
+          <h3>Author</h3>
+          <p>Hi! I'm Søren Louv-Jansen from Copenhagen, Denmark, currently based in San Francisco.</p>
+          <p>Find me on <a href="https://twitter.com/sqrendk" target="_blank">Twitter</a>, <a href="https://github.com/sqren" target="_blank">GitHub</a>, <a href="https://www.facebook.com/sorenlouv" target="_blank">Facebook</a>, <a href="http://dk.linkedin.com/in/sorenlouv/" target="_blank">LinkedIn</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div spin="{{isLoading}}"></div>
+    <div class="google-maps" ng-class="isLoading ? 'is-loading' : ''" tips="tips"></div>
+  </body>
+</html>
