@@ -5,6 +5,7 @@
   "private": true,
   "dependencies": {
     "express": "4.x",
+    "memory-cache": "0.0.5",
     "nconf": "^0.6.9",
     "request": "2.x"
   }

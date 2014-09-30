@@ -23,7 +23,7 @@ lyftApp.controller('main', ['$scope', '$http', function($scope, $http){
   $scope.isMobile = isMobile();
   $scope.tips = [];
 
-  $http.get('http://api.lyft-pricing.local:8888/tips').success(function(tips) {
+  $http.get('/tips').success(function(tips) {
     $scope.tips = tips;
 
     $scope.tipCoverage = getTipCoverage(tips);
