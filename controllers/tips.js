@@ -133,7 +133,7 @@ module.exports = function(req, res){
       var isLast = coordinates[coordinates.length - 1] === coordinate;
       if(isLast){
         console.log('save to cache');
-        cache.put('tips', tips, 10000);
+        cache.put('tips', tips, 30000);
         callback(tips);
       }
 
