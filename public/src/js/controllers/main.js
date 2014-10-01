@@ -11,7 +11,7 @@ lyftApp.controller('main', ['$scope', '$http', function($scope, $http){
   };
 
   var getTipCoverage = function(tips) {
-    return tips.length / 120 * 100;
+    return tips.length / 111 * 100;
   };
 
   var isMobile = function() {

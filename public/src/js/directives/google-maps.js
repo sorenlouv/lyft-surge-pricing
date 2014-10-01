@@ -33,11 +33,7 @@ lyftApp.directive('googleMaps', [function(){
       var addTipPercentage = function(tip) {
         var center = new google.maps.LatLng(tip.lat, tip.lng);
         var tipPercentage = tip.percentage;
-        if(tipPercentage === 0){
-          return;
-        }
-
-        var fillOpacity = tipPercentage/200;
+        var fillOpacity = tipPercentage / 200;
         var textColor = tipPercentage > 100 ? '#ffffff' : '#000000';
 
         new google.maps.Circle({
@@ -54,13 +50,10 @@ lyftApp.directive('googleMaps', [function(){
         var label = new InfoBox({
             content: tipPercentage,
             boxStyle: {
-                color: textColor,
-                textAlign: 'center',
-                fontSize: '26px',
-                width: '100px'
+                color: textColor
             },
             disableAutoPan: true,
-            pixelOffset: new google.maps.Size(-51, -17),
+            // pixelOffset: new google.maps.Size(-49, -14),
             position: center,
             closeBoxURL: '',
             pane: 'overlayShadow'

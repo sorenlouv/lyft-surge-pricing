@@ -56,15 +56,12 @@ var getRequestOptions = function(lat, lng) {
 
 var getTip = function(lat, lng, callback) {
 
+  // var tipPercentages = [25, 50, 75, 100, 200];
+  // var tipPercentage = tipPercentages[Math.floor(Math.random() * tipPercentages.length)];
+  // callback(tipPercentage);
+
+
   var requestOptions = getRequestOptions(lat, lng);
-
-  // setTimeout(function() {
-  //   var tipPercentages = [25, 50, 75, 100, 200];
-  //   var tipPercentage = tipPercentages[Math.floor(Math.random() * tipPercentages.length)];
-  //   callback(tipPercentage);
-  // }, 100);
-
-
   request(requestOptions, function(error, response, body) {
     if (!error && response.statusCode == 200) {
       var tipPercentage = body.system.tipPercentage || 0;
